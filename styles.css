@@ -68,3 +68,24 @@ h3 { margin: 18px 0 9px; color: var(--navy); font-size: 1.35rem; }
 footer { padding: 34px 0; color: var(--muted); border-top: 1px solid var(--line); text-align: center; font-size: .94rem; }
 @media (max-width: 820px) { .nav-links { display: none; } .hero { padding-top: 24px; } .split-intro, .card-grid, .details-grid { grid-template-columns: 1fr; } .split-intro { gap: 20px; } section { padding: 62px 0; } .organizer-grid { grid-template-columns: repeat(2, 1fr); } .image-row { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .container { width: min(100% - 24px, 1120px); } .banner { border-radius: 10px; } .hero-copy { margin-top: 34px; } .button { width: 100%; } .organizer-grid { grid-template-columns: 1fr; } }
+
+.schedule-image-wrap {
+  margin: 36px 0 0;
+  text-align: center;
+}
+
+.schedule-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.schedule-image-wrap figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
