@@ -1,7 +1,9 @@
+![Reason. Plan. Act. — Physical AI Workshop](assets/workshop-banner.png)
+
 # Reason. Plan. Act. An Interactive Workshop on Physical AI
-### Workshop
 ### 18-22/10 - 09:00-15:00 
 ### Technion - Computer Science 
+
 
 
 Physical AI seeks to bring artificial intelligence into the physical world by enabling intelligent systems to perceive, reason, and act in dynamic and uncertain environments. Unlike traditional AI, which primarily operates in digital domains, Physical AI must bridge high-level reasoning with the constraints imposed by geometry, dynamics, uncertainty, sensing, and real-time interaction.
