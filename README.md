@@ -1,15 +1,24 @@
-# PAIR: Plan, Activity and Intent Recognition
-### AAAI-26 Half-Day Tutorial  
-**Tuesday, January 20, 2026 • 8:30am–12:30pm**  
-**Singapore EXPO Convention & Exhibition Centre**
+# Physical AI Workshop website
 
-This repository hosts the public website and online materials for the **PAIR (Plan, Activity and Intent Recognition)** tutorial at **AAAI-26**.  
-The tutorial introduces core concepts, problem definitions, algorithms, benchmarks, and current challenges in intent recognition, plan recognition, human–AI collaboration, and multi-agent reasoning.
+This folder is ready to upload to the root of:
 
----
+`CLAIR-LAB-TECHNION/physical-ai-workshop`
 
-## 🌐 Website
-The tutorial website is available at:
+## Files
 
-👉 https://clair-lab-technion.github.io/AAAI26-PAIR-Tutorial
+- `index.html` — webpage content
+- `styles.css` — responsive visual design
+- `assets/workshop-banner.png` — workshop banner
+- `.nojekyll` — tells GitHub Pages to serve the files directly
 
+## Before publishing
+
+Open `index.html` and search for `EDIT:`. Replace the placeholder registration text, workshop dates, location, and `#` registration link.
+
+## Publish on GitHub Pages
+
+1. Upload every file and folder in this directory to the repository root.
+2. Open **Settings → Pages**.
+3. Choose **Deploy from a branch**.
+4. Select **main** and **/(root)**, then save.
+5. The site will appear at `https://clair-lab-technion.github.io/physical-ai-workshop/`.

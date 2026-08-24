@@ -1,582 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>AAAI-26 Tutorial: Plan, Activity and Intent Recognition (PAIR)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="AAAI-26 tutorial on Plan, Activity and Intent Recognition (PAIR)" />
-  <style>
-    :root {
-      --accent: #0b7285;
-      --accent-light: #e3fafc;
-      --bg: #f8f9fa;
-      --text: #212529;
-      --muted: #6c757d;
-    }
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* Header + nav */
-    header {
-      background: white;
-      border-bottom: 1px solid #dee2e6;
-      padding: 1.1rem 1.5rem 0.4rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.6rem;
-      color: var(--accent);
-    }
-    header p {
-      margin: 0.15rem 0 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin: 0.6rem 0 0.4rem;
-    }
-    .badge {
-      font-size: 0.8rem;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid #ced4da;
-      background: white;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    nav {
-      margin-top: 0.4rem;
-      border-top: 1px solid #f1f3f5;
-      padding-top: 0.4rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      font-size: 0.9rem;
-    }
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      padding-bottom: 0.15rem;
-      border-bottom: 2px solid transparent;
-    }
-    nav a:hover {
-      color: var(--accent);
-      border-bottom-color: var(--accent-light);
-    }
-
-    /* Layout */
-    main {
-      max-width: 960px;
-      margin: 1.5rem auto 3rem;
-      padding: 0 1rem;
-    }
-    .section {
-      margin-bottom: 2rem;
-    }
-    .section h2 {
-      font-size: 1.2rem;
-      border-bottom: 2px solid var(--accent-light);
-      padding-bottom: 0.35rem;
-      margin-bottom: 0.75rem;
-    }
-    .two-column {
-      display: grid;
-      gap: 1.5rem;
-    }
-    @media (min-width: 800px) {
-      .two-column {
-        grid-template-columns: 2fr 1.5fr;
-      }
-    }
-
-    /* Banner */
-    #banner {
-      text-align: center;
-      margin: 1rem 0 1.5rem;
-    }
-    #banner img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    #banner img:hover {
-      transform: scale(1.015);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-    }
-
-    /* Hero card */
-    .hero {
-      background: white;
-      border-radius: 0.75rem;
-      padding: 1.5rem 1.5rem 1.25rem;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
-      border: 1px solid #e9ecef;
-      margin-bottom: 1.8rem;
-    }
-    .hero h2 {
-      margin-top: 0;
-      font-size: 1.3rem;
-    }
-    .hero p {
-      margin-top: 0.5rem;
-    }
-    .meta-grid {
-      display: grid;
-      gap: 0.75rem 2rem;
-      margin-top: 1rem;
-      font-size: 0.95rem;
-    }
-    @media (min-width: 800px) {
-      .meta-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-    .meta-label {
-      font-weight: 600;
-      color: var(--muted);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    /* Cards, lists, pills */
-    .card {
-      background: white;
-      border-radius: 0.75rem;
-      padding: 1.1rem 1.25rem;
-      border: 1px solid #e9ecef;
-    }
-    ul, ol {
-      padding-left: 1.15rem;
-      margin-top: 0.2rem;
-    }
-    .tagline {
-      font-style: italic;
-      color: var(--muted);
-      margin-top: 0.4rem;
-    }
-    .pill {
-      display: inline-block;
-      background: var(--accent-light);
-      color: var(--accent);
-      padding: 0.25rem 0.6rem;
-      font-size: 0.8rem;
-      border-radius: 999px;
-      font-weight: 500;
-      margin: 0.1rem;
-    }
-
-    /* Presenters */
-    .presenters-grid {
-      display: grid;
-      gap: 1.2rem;
-    }
-    @media (min-width: 720px) {
-      .presenters-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    .presenter-card {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 0.9rem;
-      align-items: flex-start;
-      padding: 0.9rem;
-      border-radius: 0.75rem;
-      border: 1px solid #e9ecef;
-      background: #ffffff;
-    }
-    .presenter-photo {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #e9ecef;
-    }
-    .presenter-name {
-      font-weight: 600;
-      color: var(--accent);
-    }
-    .presenter-affil {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    .presenter-email a {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    .presenter-email a:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 480px) {
-      .presenter-card {
-        grid-template-columns: 1fr;
-        text-align: left;
-      }
-      .presenter-photo {
-        width: 80px;
-        height: 80px;
-      }
-    }
-
-    /* Buttons */
-    .btn-primary {
-      display: inline-block;
-      margin-top: 0.6rem;
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      background: var(--accent);
-      color: white;
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-decoration: none;
-    }
-    .btn-primary:hover {
-      background: #0a6373;
-      text-decoration: none;
-    }
-
-    /* Links & footer */
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--muted);
-      padding: 1.5rem 1rem 2rem;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive Physical AI workshop by CLAIR Lab and the Taub Faculty of Computer Science at the Technion.">
+  <title>Reason. Plan. Act. | Physical AI Workshop</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Plan, Activity and Intent Recognition (PAIR)</h1>
-    <p>AAAI-26 Tutorial • Tuesday, January 20 • 8:30am–12:30pm</p>
-    <p>Location: Singapore EXPO Convention &amp; Exhibition Centre</p>
-    <div class="badge-row">
-      <span class="badge">AAAI-26</span>
-      <span class="badge">Half-day Tutorial</span>
-      <span class="badge">8:30am – 12:30pm</span>
-      <span class="badge">January 20, 2026</span>
-      <span class="badge">Singapore EXPO</span>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">CLAIR · TECHNION</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#workshop">Workshop</a>
+        <a href="#participation">Participation</a>
+        <a class="nav-cta" href="#registration">Register</a>
+      </div>
     </div>
+  </nav>
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#outline">Outline</a>
-      <a href="#schedule">Schedule</a>
-      <a href="#presenters">Presenters</a>
-      <a href="#materials">Materials</a>
-      <a href="#references">References</a>
-    </nav>
-  </header>
+  <main id="top">
+    <header class="hero">
+      <div class="container">
+        <img class="banner" src="assets/workshop-banner.png" alt="CLAIR Lab, Taub Faculty of Computer Science, and Technion">
+        <div class="hero-copy">
+          <p class="eyebrow">AI Days · ימי AI בטכניון</p>
+          <h1>Reason. Plan. Act.</h1>
+          <p class="hero-kicker">An Interactive Workshop on Physical AI</p>
+          <p class="subtitle">Connect abstract AI reasoning with reliable decision-making and execution in complex physical environments.</p>
+          <div class="actions">
+            <a class="button button-primary" href="#registration">Registration information</a>
+            <a class="button button-secondary" href="#workshop">Explore the workshop</a>
+          </div>
+        </div>
+      </div>
+    </header>
 
-  <!-- Banner graphic -->
-  <section id="banner">
-    <img
-      src="images/pair-banner.jpg"
-      alt="PAIR Tutorial AAAI-26 Banner"
-    />
-  </section>
-
-  <main>
-    <section id="about" class="hero">
-      <h2>About the Tutorial</h2>
-      <p>
-        Despite rapid progress in machine learning, <strong>real-time, online inference
-        of agents’ intentions</strong> remains one of the enduring grand challenges in AI.
-        Plan, activity, intent, and goal recognition focus on inferring what
-        software agents, robots, or humans are trying to achieve from observations
-        of their behavior and interactions.
-      </p>
-      <p>
-        This tutorial targets AI students and researchers who want to understand
-        and apply recognition techniques in their own work, and who are looking
-        for new research directions grounded in this rich, cross-cutting area
-        of AI.
-      </p>
-
-      <div class="meta-grid">
+    <section id="about">
+      <div class="container split-intro">
         <div>
-          <div class="meta-label">Goal</div>
-          <div>
-            Provide a unified, up-to-date introduction to plan, activity, intent,
-            and goal recognition: core concepts, problem formulations, algorithms,
-            and applications.
-          </div>
+          <p class="eyebrow">From intelligence to action</p>
+          <h2>Building AI systems that operate in the physical world</h2>
         </div>
+        <p class="lead">The workshop integrates symbolic reasoning, geometric planning, perception, and execution into coherent decision-making systems, with an emphasis on modern planning and learning techniques for operating under uncertainty.</p>
+      </div>
+    </section>
+
+    <section id="workshop" class="alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Hands-on learning</p>
+          <h2>Turn ideas into physical behavior</h2>
+          <p class="lead">Participants will implement and experiment with core algorithms, gaining practical insight into the complete reasoning-to-action pipeline.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card"><span class="card-number">01</span><h3>Reason</h3><p>Represent tasks, goals, and constraints through symbolic and hierarchical models.</p></article>
+          <article class="card"><span class="card-number">02</span><h3>Plan</h3><p>Combine task and motion planning with perception and decision-making under uncertainty.</p></article>
+          <article class="card"><span class="card-number">03</span><h3>Act</h3><p>Test planning and learning methods in realistic simulation and on physical robots.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="participation">
+      <div class="container details-grid">
         <div>
-          <div class="meta-label">Who should attend?</div>
-          <div>
-            Graduate students, researchers, and practitioners with interest in
-            planning, reinforcement learning, human–robot interaction, multi-agent
-            systems, or intent inference.
-          </div>
+          <p class="eyebrow">Workshop format</p>
+          <h2>Interactive by design</h2>
+          <p class="lead">Designed for undergraduate and graduate students, researchers, and practitioners interested in AI, robotics, autonomous systems, machine learning, and control.</p>
+          <ul class="checklist">
+            <li>Interactive Jupyter notebooks</li>
+            <li>No installation required</li>
+            <li>Realistic simulation environments</li>
+            <li>Hands-on work with real robots</li>
+            <li>Planning and learning under uncertainty</li>
+          </ul>
         </div>
-        <div>
-          <div class="meta-label">Prerequisites</div>
-          <div>
-            Familiarity with basic AI concepts, probabilistic reasoning, and
-            planning is recommended. Prior exposure to Bayesian inference or
-            logic-based reasoning is helpful but not required.
-          </div>
-        </div>
+        <aside class="notice">
+          <p class="notice-label">Participation</p>
+          <h3>Everyone is welcome</h3>
+          <p>Priority will be given to <strong>Technion students</strong>. Please register, and the list of accepted participants will be announced by <strong>September 15</strong>.</p>
+        </aside>
       </div>
     </section>
 
-    <section class="section two-column">
-      <div>
-        <h2>Motivation &amp; Scope</h2>
-        <div class="card">
-          <p>
-            Recognition problems arise in a wide range of domains: assistive
-            technologies, software assistants, computer and network security,
-            behavior recognition, human–robot collaboration, and more. Techniques
-            span user modeling, machine vision, automated planning, intelligent
-            user interfaces, HCI, multi-agent systems, natural language
-            understanding, and machine learning.
-          </p>
-          <p>
-            While this diversity has produced a wealth of ideas and tools, it has
-            also led to fragmentation. This tutorial <strong>brings together
-            perspectives and methods from multiple AI subfields</strong> to offer
-            a coherent view of the plan, activity, intent, and goal recognition
-            landscape.
-          </p>
-          <p class="tagline">
-            Building on the successful AAAI-19 PAIR tutorial and our 2021 book,
-            we present an updated and expanded view of the field.
-          </p>
-        </div>
-      </div>
-      <div>
-        <h2>Keywords</h2>
-        <div class="card">
-          <p>
-            <span class="pill">Plan recognition</span>
-            <span class="pill">Goal recognition</span>
-            <span class="pill">Activity recognition</span>
-            <span class="pill">Behavior recognition</span>
-            <span class="pill">Temporal pattern recognition</span>
-            <span class="pill">Probabilistic inference</span>
-            <span class="pill">Reasoning under uncertainty</span>
-            <span class="pill">Theory of mind</span>
-            <span class="pill">Human–AI collaboration</span>
-            <span class="pill">Multi-agent systems</span>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="outline" class="section">
-      <h2>Detailed Outline</h2>
-      <div class="card">
-        <ol>
-          <li>
-            <strong>Introduction to recognition problems</strong><br />
-            Plan, activity, intent, and goal recognition: basic concepts and
-            problem space.
-          </li>
-          <li>
-            <strong>Motivating scenarios across domains</strong><br />
-            Examples from human–robot collaboration, security, assistive
-            technologies, and other application areas.
-          </li>
-          <li>
-            <strong>Formal problem definitions</strong><br />
-            Distinctions among plan, activity, intent, and goal recognition
-            tasks; relationships between them.
-          </li>
-          <li>
-            <strong>Computational representations</strong><br />
-            Logic-based, probabilistic, machine learning, and hybrid models
-            used for recognition.
-          </li>
-          <li>
-            <strong>Algorithms and inference methods</strong><br />
-            Core approaches for performing online and offline recognition in
-            different settings.
-          </li>
-          <li>
-            <strong>Evaluation methodologies and benchmarks</strong><br />
-            How to evaluate recognition systems: datasets, metrics, and
-            experimental design.
-          </li>
-          <li>
-            <strong>Current challenges &amp; open directions</strong><br />
-            Scalability, real-time reasoning, robustness, integration with
-            learning, human–AI collaboration, and other open research questions.
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="schedule" class="section">
-      <h2>Schedule Breakdown</h2>
-      <div class="card">
-        <p>
-          The tutorial is scheduled for <strong>Tuesday, January 20, 8:30am–12:30pm</strong>
-          at the Singapore EXPO Convention &amp; Exhibition Centre.
-        </p>
-
-        <ul>
-          <li><strong>08:30 – 08:40</strong> &nbsp;Welcome, logistics, and motivation</li>
-          <li><strong>08:40 – 09:20</strong> &nbsp;Introduction to plan, activity, intent, and goal recognition</li>
-          <li><strong>09:20 – 10:00</strong> &nbsp;Formal problem definitions and core representations</li>
-          <li><strong>10:00 – 10:30</strong> &nbsp;Break</li>
-          <li><strong>10:30 – 11:50</strong> &nbsp;Algorithms and inference methods</li>
-          <li><strong>11:50 – 11:50</strong> &nbsp;Hands-on demo</li>
-          <li><strong>11:50 – 12:30</strong> &nbsp;Open challenges, discussion, and Q&amp;A</li>
-        </ul>
-
-        <p style="font-size:0.9rem; color:#6c757d; margin-top:0.6rem;">
-          Times are approximate and may be adjusted slightly during the tutorial
-          to allow for questions and discussion.
-        </p>
-      </div>
-    </section>
-
-    <section id="presenters" class="section">
-      <h2>Presenters</h2>
-      <div class="presenters-grid">
-
-        <!-- Sarah -->
-        <div class="presenter-card">
-          <img
-            src="images/sarah-keren.jpg"
-            alt="Sarah Keren"
-            class="presenter-photo"
-          />
-          <div>
-            <div class="presenter-name">Sarah Keren</div>
-            <div class="presenter-affil">
-              Senior Lecturer, Faculty of Computer Science, Technion – Israel Institute of Technology
-            </div>
-            <div class="presenter-email">
-              Contact: <a href="mailto:sarahk@technion.ac.il">sarahk@technion.ac.il</a>
-            </div>
-            <p>
-              Sarah’s research focuses on multi-agent environment design: creating
-              environments that enhance agent capabilities and enable effective
-              multi-robot and human–robot collaboration. She combines model-based
-              reasoning, decision-making under uncertainty, game theory, and
-              multi-agent learning. Her doctoral work introduced
-              <em>Goal Recognition Design</em>, a framework for improving goal
-              inference via environment redesign.
-            </p>
-          </div>
-        </div>
-
-        <!-- Reuth -->
-        <div class="presenter-card">
-          <img
-            src="images/reuth-mirsky.jpg"
-            alt="Reuth Mirsky"
-            class="presenter-photo"
-          />
-          <div>
-            <div class="presenter-name">Reuth Mirsky</div>
-            <div class="presenter-affil">
-              Assistant Professor, Computer Science Department, Tufts University
-            </div>
-            <div class="presenter-email">
-              Contact:
-              <a href="mailto:reuth.mirsky@tufts.edu">reuth.mirsky@tufts.edu</a>
-            </div>
-            <p>
-              Reuth leads the GOLD (goal optimization using learning and
-              decision-making) lab. Her work develops algorithms and frameworks
-              that challenge traditional assumptions about intelligent agents. She
-              is an active contributor to the AI and HRI communities and has
-              co-organized more than 15 events on related topics at major AI
-              conferences, including the PAIR and RaD-AI workshop series.
-            </p>
-          </div>
-        </div>
-
-        <!-- Chris -->
-        <div class="presenter-card">
-          <img
-            src="images/christopher-geib.jpg"
-            alt="Christopher Geib"
-            class="presenter-photo"
-          />
-          <div>
-            <div class="presenter-name">Christopher Geib</div>
-            <div class="presenter-affil">
-              Principal Scientist, Charles River Analytics
-            </div>
-            <div class="presenter-email">
-              Contact: <a href="mailto:cwgeib@gmail.com">cwgeib@gmail.com</a>
-            </div>
-            <p>
-              Chris is the principal architect of multiple probabilistic plan
-              recognition systems, including the ELEXIR system, which demonstrates
-              state-of-the-art plan recognition and planning capabilities using a
-              single, shared, and learnable domain representation.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="materials" class="section">
-      <h2>Materials</h2>
-      <div class="card">
-         <li>
-        <a href="./PAIR_tutorial_slides_AAAI_2026.pdf" target="_blank">
-          Tutorial Slides (PDF)
-        </a>
-      </li>
-      
-    
-      </div>
-    </section>
-
-
-    <section id="references" class="section">
-      <h2>References</h2>
-      <div class="card">
-        <ul>
-          <li>
-            S. Keren, R. Mirsky, and C. Geib. “Plan Activity and Intent
-            Recognition Tutorial.” AAAI, 2019.
-          </li>
-          <li>
-            R. Mirsky, S. Keren, and C. Geib.
-            <em>Introduction to Symbolic Plan and Goal Recognition</em>.
-            Springer, 2021.
-          </li>
-        </ul>
+    <section id="registration" class="registration">
+      <div class="container registration-inner">
+        <p class="eyebrow eyebrow-light">Join the workshop</p>
+        <h2>Registration</h2>
+        <!-- EDIT: replace the sentence below with the workshop dates and location. -->
+        <p>Registration details, dates, and location will be published here shortly.</p>
+        <!-- EDIT: replace # with the Google Form URL and remove aria-disabled. -->
+        <a class="status" href="#" aria-disabled="true">Registration link coming soon</a>
       </div>
     </section>
   </main>
 
   <footer>
-    &copy; 2026 PAIR Tutorial Organizers · AAAI-26 · Singapore EXPO
+    <div class="container">Collaborative AI and Robotics Lab · The Henry and Marilyn Taub Faculty of Computer Science · Technion</div>
   </footer>
 </body>
 </html>
