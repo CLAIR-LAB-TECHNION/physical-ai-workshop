@@ -8,15 +8,15 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="container nav-inner">
-      <a class="brand" href="#top">CLAIR · TECHNION</a>
+      <a class="brand" href="#top">CLAIR LAB · TECHNION COMPUTER SCIENCE</a>
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#workshop">Workshop</a>
-        <a href="#participation">Participation</a>
-        <a class="nav-cta" href="#registration">Register</a>
+        <a href="#objectives">Objectives</a>
+        <a href="#program">Program</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="https://forms.gle/dM36JP1vgWhkH96X8" target="_blank" rel="noopener noreferrer">Register</a>
       </div>
     </div>
   </nav>
@@ -31,7 +31,7 @@
           <p class="hero-kicker">An Interactive Workshop on Physical AI</p>
           <p class="subtitle">Connect abstract AI reasoning with reliable decision-making and execution in complex physical environments.</p>
           <div class="actions">
-            <a class="button button-primary" href="#registration">Registration information</a>
+            <a class="button button-primary" href="https://forms.gle/dM36JP1vgWhkH96X8" target="_blank" rel="noopener noreferrer">Register now</a>
             <a class="button button-secondary" href="#workshop">Explore the workshop</a>
           </div>
         </div>
@@ -63,6 +63,40 @@
       </div>
     </section>
 
+    <section id="objectives">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Workshop objectives</p>
+          <h2>From abstract reasoning to reliable physical action</h2>
+          <!-- EDIT: replace or expand this paragraph with your final objectives. -->
+          <p class="lead">The workshop gives participants a practical understanding of how Physical AI systems connect high-level goals with perception, geometry, dynamics, uncertainty, and real-time execution. By the end of the workshop, participants should be able to:</p>
+        </div>
+        <!-- EDIT: customize these learning objectives as needed. -->
+        <div class="objective-grid">
+          <article class="objective-card">
+            <span class="objective-number">01</span>
+            <h3>Model physical tasks</h3>
+            <p>Express goals, actions, constraints, and dependencies using symbolic and hierarchical task representations.</p>
+          </article>
+          <article class="objective-card">
+            <span class="objective-number">02</span>
+            <h3>Connect task and motion planning</h3>
+            <p>Combine discrete task decisions with continuous geometry, collision constraints, and feasible robot motion.</p>
+          </article>
+          <article class="objective-card">
+            <span class="objective-number">03</span>
+            <h3>Reason under uncertainty</h3>
+            <p>Account for imperfect sensing, changing environments, and execution failures when choosing and updating actions.</p>
+          </article>
+          <article class="objective-card">
+            <span class="objective-number">04</span>
+            <h3>Implement and evaluate</h3>
+            <p>Build core algorithms in interactive notebooks and evaluate them in simulation and on physical robotic platforms.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="participation">
       <div class="container details-grid">
         <div>
@@ -85,25 +119,110 @@
       </div>
     </section>
 
-  <section id="registration" class="registration">
-  <div class="container registration-inner">
-    <p class="eyebrow eyebrow-light">Join the workshop</p>
-    <h2>Registration</h2>
-    <p>Registration is now open. Complete the form to apply for participation.</p>
-    <a
-      class="status"
-      href="https://forms.gle/dM36JP1vgWhkH96X8"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Register now
-    </a>
-  </div>
-</section>
+    <section id="program" class="alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Full program</p>
+          <h2>Workshop schedule</h2>
+          <!-- EDIT: replace the draft day labels and times with the confirmed schedule. -->
+          <p class="lead">A five-part progression from Physical AI foundations to integrated experiments on robotic platforms. Exact dates and session times will be announced.</p>
+        </div>
+        <div class="schedule-wrap">
+          <table class="schedule-table">
+            <caption>Draft schedule for the Physical AI workshop</caption>
+            <thead>
+              <tr>
+                <th scope="col">Day</th>
+                <th scope="col">Time</th>
+                <th scope="col">Focus</th>
+                <th scope="col">Activities</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Day 1</th>
+                <td><span class="time-placeholder">TBD</span></td>
+                <td><strong>Foundations of Physical AI and Task Planning</strong></td>+
+                <td>Introduction to Physical AI, the reasoning-to-action pipeline, and browser-based notebook setup.</td>
+                <td>Symbolic representations, states, actions, goals, constraints, and hands-on planning exercises.</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Day 2</th>
+                <td><span class="time-placeholder">TBD</span></td>
+                <td><strong>Motion planning and control</strong></td>
+                <td>Geometric reasoning, collision checking, feasible motion, and integration of task and motion planning.</td>
+
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">Day 3</th>
+                <td><span class="time-placeholder">TBD</span></td>
+                <td><strong>Task and Motion Planning</strong></td>
+                <td>Integration of task and motion planning.</td>
+              </tr>
+              <tr>
+                <th scope="row">Day 4</th>
+                <td><span class="time-placeholder">TBD</span></td>
+                <td><strong>Planning and Learning Under Uncertainty</strong></td>
+                <td>Perception, belief updates, learning-augmented planning,, and decision-making in dynamic and uncertain environments.</td>
+
+              </tr>
+              <tr>
+                <th scope="row">Day 5</th>
+                <td><span class="time-placeholder">TBD</span></td>
+                <td><strong>Rbot experiments</strong></td>
+                <td> Simulation experiments, physical robot demonstrations, and closing discussion.</td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <img
+      src="images/clair-lab-robots.png"
+      alt="Reason. Plan. Act. workshop banner"
+      class="banner"
+    />
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Questions and resources</p>
+          <h2>Contact the organizers</h2>
+          <p class="lead">For questions about the program, participation, accessibility, or registration, contact the workshop organizer.</p>
+        </div>
+        <div class="contact-cards">
+          <address class="contact-card">
+            <span class="contact-label">Email</span>
+            <!-- EDIT: replace YOUR_EMAIL@technion.ac.il in both the href and visible text. -->
+            <a href="mailto:sarahk@technion.ac.il">sarahk@technion.ac.il</a>
+          </address>
+          <div class="contact-card">
+            <span class="contact-label">Workshop repository</span>
+            <a href="https://github.com/CLAIR-LAB-TECHNION/physical-ai-workshop" target="_blank" rel="noopener noreferrer">View the project on GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="registration" class="registration">
+      <div class="container registration-inner">
+        <p class="eyebrow eyebrow-light">Join the workshop</p>
+        <h2>Registration</h2>
+        <p>Registration is now open. Complete the form to apply for participation.</p>
+        <a class="status" href="https://forms.gle/dM36JP1vgWhkH96X8" target="_blank" rel="noopener noreferrer">Register now</a>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <div class="container">Collaborative AI and Robotics Lab · The Henry and Marilyn Taub Faculty of Computer Science · Technion</div>
+    <div class="container">
+      Collaborative AI and Robotics Lab · The Henry and Marilyn Taub Faculty of Computer Science · Technion<br>
+      <a href="https://github.com/CLAIR-LAB-TECHNION/physical-ai-workshop" target="_blank" rel="noopener noreferrer">Workshop repository on GitHub</a>
+    </div>
   </footer>
 </body>
 </html>
