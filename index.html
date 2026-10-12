@@ -10,15 +10,16 @@
   <style>
     #participants { scroll-margin-top: 100px; }
     #participants .schedule-image-wrap { margin: 24px 0 40px; }
-    .participant-schedule { width: 100%; border-collapse: collapse; background: #fff; text-align: left; }
+    .participant-schedule { width: 100%; min-width: 1120px; table-layout: fixed; border-collapse: collapse; background: #fff; text-align: left; }
     .participant-schedule caption { text-align: left; padding: 0 0 16px; color: var(--muted); }
     .participant-schedule th, .participant-schedule td { padding: 14px 18px; border: 1px solid var(--line); vertical-align: top; }
     .participant-schedule thead th { background: var(--navy); color: #fff; }
-    .participant-schedule .day-label { width: 21%; background: var(--soft); color: var(--navy); }
-    .participant-schedule .slot-time { white-space: nowrap; }
-    .participant-schedule .slot-content { min-width: 220px; }
-    .participant-schedule .day-start > * { border-top: 3px solid var(--green-dark); }
-    .participant-schedule .pending-content { color: var(--muted); }
+    .participant-schedule thead th:first-child { width: 145px; }
+    .participant-schedule .slot-time { white-space: nowrap; background: var(--soft); color: var(--navy); }
+    .participant-schedule .session-cell { overflow-wrap: anywhere; }
+    .participant-schedule .session-title { display: block; font-weight: 700; }
+    .participant-schedule .session-description { display: block; min-height: 4.5em; margin-top: 12px; font-weight: 400; line-height: 1.65; overflow-wrap: anywhere; }
+    .participant-schedule .content { color: var(--muted); }
     .participant-details { margin-top: 32px; }
     @media (max-width: 820px) {
       #participants { scroll-margin-top: 84px; }
@@ -156,7 +157,6 @@
     <section id="participants" class="alt" aria-labelledby="participants-heading">
       <div class="container">
         <div class="section-heading section-heading-wide">
-          <p class="eyebrow">Get ready for the workshop</p>
           <h2 id="participants-heading">Information for Participants</h2>
         </div>
         <h3>Schedule overview</h3>
@@ -172,177 +172,168 @@
           <table class="participant-schedule">
             <caption>18–22 October 2026 · All times are local to the Technion (Israel). Session content will be announced.</caption>
             <thead>
-              <tr><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Session</th><th scope="col">Content</th></tr>
+              <tr>
+                <th scope="col">Time</th>
+                <th scope="col">Day 1<br>Sunday<br>18 October 2026</th>
+                <th scope="col">Day 2<br>Monday<br>19 October 2026</th>
+                <th scope="col">Day 3<br>Tuesday<br>20 October 2026</th>
+                <th scope="col">Day 4<br>Wednesday<br>21 October 2026</th>
+                <th scope="col">Day 5<br>Thursday<br>22 October 2026</th>
+              </tr>
             </thead>
             <tbody>
-              <tr class="day-start">
-                <th class="day-label" scope="rowgroup" rowspan="6">Day 1<br>Sunday<br>18 October 2026</th>
-                <td class="slot-time">09:00–10:30</td>
-                <th scope="row">Morning lecture</th>
-                <td class="slot-content"><!-- EDIT: Day 1, Morning lecture content. --><span class="pending-content">To be announced</span></td>
+              <tr>
+                <th scope="row" class="slot-time">09:00–10:30</th>
+                <td class="session-cell">
+                  <span class="session-title">Morning lecture</span>
+                  <div class="session-description"><!-- EDIT: Day 1, Morning lecture content. --><span class="content">Introduction to physical AI through task and motion planning</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Morning lecture</span>
+                  <div class="session-description"><!-- EDIT: Day 2, Morning lecture content. --><span class="content">From high-level commands to motions - Introduction to motion planning and control</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Morning lecture</span>
+                  <div class="session-description"><!-- EDIT: Day 3, Morning lecture content. --><span class="content">Intrgrtating task and motion planning under uncertainty</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Morning lecture</span>
+                  <div class="session-description"><!-- EDIT: Day 4, Morning lecture content. --><span class="content">Learning from experience - Integrating learning into the decision loop</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Morning lecture</span>
+                  <div class="session-description"><!-- EDIT: Day 5, Morning lecture content. --><span class="content">Robots day - assignment presentation</span></div>
+                </td>
               </tr>
               <tr>
-                <td class="slot-time">10:30–11:00</td>
-                <th scope="row">Break</th>
-                <td class="slot-content"><!-- EDIT: Day 1, Break content. --><span class="pending-content">To be announced</span></td>
+                <th scope="row" class="slot-time">10:30–11:00</th>
+                <td class="session-cell">
+                  <span class="session-title">Break</span>
+                  <div class="session-description"><!-- EDIT: Day 1, Break content. --><span class="content"></span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Break</span>
+                  <div class="session-description"><!-- EDIT: Day 2, Break content. --><span class="content"></span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Break</span>
+                  <div class="session-description"><!-- EDIT: Day 3, Break content. --><span class="content"></span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Break</span>
+                  <div class="session-description"><!-- EDIT: Day 4, Break content. --><span class="content"></span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Break</span>
+                  <div class="session-description"><!-- EDIT: Day 5, Break content. --><span class="content"></span></div>
+                </td>
               </tr>
               <tr>
-                <td class="slot-time">11:00–12:00</td>
-                <th scope="row">Lab 1</th>
-                <td class="slot-content"><!-- EDIT: Day 1, Lab 1 content. --><span class="pending-content">To be announced</span></td>
+                <th scope="row" class="slot-time">11:00–12:00</th>
+                <td class="session-cell">
+                  <span class="session-title">Lab 1</span>
+                  <div class="session-description"><!-- EDIT: Day 1, Lab 1.1 content. --><span class="content">Task planning</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Lab 1</span>
+                  <div class="session-description"><!-- EDIT: Day 2, Lab 2.1 content. --><span class="content">Motion planning 2</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Lab 1</span>
+                  <div class="session-description"><!-- EDIT: Day 3, Lab 3.1 content. --><span class="content">State estimation</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Lab 1</span>
+                  <div class="session-description"><!-- EDIT: Day 4, Lab 4.1 content. --><span class="content">Task and motion planning</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Lab 1</span>
+                  <div class="session-description"><!-- EDIT: Day 5, Lab 5.1 content. --><span class="content">>Practical session 1</span></div>
+                </td>
               </tr>
               <tr>
-                <td class="slot-time">12:00–13:30</td>
-                <th scope="row">Lunch</th>
-                <td class="slot-content"><!-- EDIT: Day 1, Lunch content. --><span class="pending-content">To be announced</span></td>
+                <th scope="row" class="slot-time">12:00–13:30</th>
+                <td class="session-cell">
+                  <span class="session-title">Lunch</span>
+                  <div class="session-description"><!-- EDIT: Day 1, Lunch content. --><span class="content"></span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Lunch</span>
+                  <div class="session-description"><!-- EDIT: Day 2, Lunch content. --><span class="content"></span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Lunch</span>
+                  <div class="session-description"><!-- EDIT: Day 3, Lunch content. --><span class="content"></span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Lunch</span>
+                  <div class="session-description"><!-- EDIT: Day 4, Lunch content. --><span class="content"></span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Lunch</span>
+                  <div class="session-description"><!-- EDIT: Day 5, Lunch content. --><span class="content"></span></div>
+                </td>
               </tr>
               <tr>
-                <td class="slot-time">13:30–14:30</td>
-                <th scope="row">Lab 2</th>
-                <td class="slot-content"><!-- EDIT: Day 1, Lab 2 content. --><span class="pending-content">To be announced</span></td>
+                <th scope="row" class="slot-time">13:30–14:30</th>
+                <td class="session-cell">
+                  <span class="session-title">Lab 2</span>
+                  <div class="session-description"><!-- EDIT: Day 1, Lab 1.2 content. --><span class="content">Motion planning 1</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Lab 2</span>
+                  <div class="session-description"><!-- EDIT: Day 2, Lab 2.2 content. --><span class="content">Control</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Lab 2</span>
+                  <div class="session-description"><!-- EDIT: Day 3, Lab 3.2 content. --><span class="content">Task then motion planning</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Lab 2</span>
+                  <div class="session-description"><!-- EDIT: Day 4, Lab 4.2 content. --><span class="content">VLAs</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Lab 2</span>
+                  <div class="session-description"><!-- EDIT: Day 5, Lab 5.2 content. --><span class="content">Practical session 2</span></div>
+                </td>
               </tr>
               <tr>
-                <td class="slot-time">14:30–15:00</td>
-                <th scope="row">Concluding lecture</th>
-                <td class="slot-content"><!-- EDIT: Day 1, Concluding lecture content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr class="day-start">
-                <th class="day-label" scope="rowgroup" rowspan="6">Day 2<br>Monday<br>19 October 2026</th>
-                <td class="slot-time">09:00–10:30</td>
-                <th scope="row">Morning lecture</th>
-                <td class="slot-content"><!-- EDIT: Day 2, Morning lecture content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">10:30–11:00</td>
-                <th scope="row">Break</th>
-                <td class="slot-content"><!-- EDIT: Day 2, Break content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">11:00–12:00</td>
-                <th scope="row">Lab 1</th>
-                <td class="slot-content"><!-- EDIT: Day 2, Lab 1 content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">12:00–13:30</td>
-                <th scope="row">Lunch</th>
-                <td class="slot-content"><!-- EDIT: Day 2, Lunch content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">13:30–14:30</td>
-                <th scope="row">Lab 2</th>
-                <td class="slot-content"><!-- EDIT: Day 2, Lab 2 content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">14:30–15:00</td>
-                <th scope="row">Concluding lecture</th>
-                <td class="slot-content"><!-- EDIT: Day 2, Concluding lecture content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr class="day-start">
-                <th class="day-label" scope="rowgroup" rowspan="6">Day 3<br>Tuesday<br>20 October 2026</th>
-                <td class="slot-time">09:00–10:30</td>
-                <th scope="row">Morning lecture</th>
-                <td class="slot-content"><!-- EDIT: Day 3, Morning lecture content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">10:30–11:00</td>
-                <th scope="row">Break</th>
-                <td class="slot-content"><!-- EDIT: Day 3, Break content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">11:00–12:00</td>
-                <th scope="row">Lab 1</th>
-                <td class="slot-content"><!-- EDIT: Day 3, Lab 1 content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">12:00–13:30</td>
-                <th scope="row">Lunch</th>
-                <td class="slot-content"><!-- EDIT: Day 3, Lunch content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">13:30–14:30</td>
-                <th scope="row">Lab 2</th>
-                <td class="slot-content"><!-- EDIT: Day 3, Lab 2 content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">14:30–15:00</td>
-                <th scope="row">Concluding lecture</th>
-                <td class="slot-content"><!-- EDIT: Day 3, Concluding lecture content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr class="day-start">
-                <th class="day-label" scope="rowgroup" rowspan="6">Day 4<br>Wednesday<br>21 October 2026</th>
-                <td class="slot-time">09:00–10:30</td>
-                <th scope="row">Morning lecture</th>
-                <td class="slot-content"><!-- EDIT: Day 4, Morning lecture content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">10:30–11:00</td>
-                <th scope="row">Break</th>
-                <td class="slot-content"><!-- EDIT: Day 4, Break content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">11:00–12:00</td>
-                <th scope="row">Lab 1</th>
-                <td class="slot-content"><!-- EDIT: Day 4, Lab 1 content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">12:00–13:30</td>
-                <th scope="row">Lunch</th>
-                <td class="slot-content"><!-- EDIT: Day 4, Lunch content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">13:30–14:30</td>
-                <th scope="row">Lab 2</th>
-                <td class="slot-content"><!-- EDIT: Day 4, Lab 2 content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">14:30–15:00</td>
-                <th scope="row">Concluding lecture</th>
-                <td class="slot-content"><!-- EDIT: Day 4, Concluding lecture content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr class="day-start">
-                <th class="day-label" scope="rowgroup" rowspan="6">Day 5<br>Thursday<br>22 October 2026</th>
-                <td class="slot-time">09:00–10:30</td>
-                <th scope="row">Morning lecture</th>
-                <td class="slot-content"><!-- EDIT: Day 5, Morning lecture content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">10:30–11:00</td>
-                <th scope="row">Break</th>
-                <td class="slot-content"><!-- EDIT: Day 5, Break content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">11:00–12:00</td>
-                <th scope="row">Lab 1</th>
-                <td class="slot-content"><!-- EDIT: Day 5, Lab 1 content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">12:00–13:30</td>
-                <th scope="row">Lunch</th>
-                <td class="slot-content"><!-- EDIT: Day 5, Lunch content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">13:30–14:30</td>
-                <th scope="row">Lab 2</th>
-                <td class="slot-content"><!-- EDIT: Day 5, Lab 2 content. --><span class="pending-content">To be announced</span></td>
-              </tr>
-              <tr>
-                <td class="slot-time">14:30–15:00</td>
-                <th scope="row">Concluding lecture</th>
-                <td class="slot-content"><!-- EDIT: Day 5, Concluding lecture content. --><span class="pending-content">To be announced</span></td>
+                <th scope="row" class="slot-time">14:30–15:00</th>
+                <td class="session-cell">
+                  <span class="session-title">Concluding lecture</span>
+                  <div class="session-description"><!-- EDIT: Day 1, Concluding lecture content. --><span class="content">To be announced</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Concluding lecture</span>
+                  <div class="session-description"><!-- EDIT: Day 2, Concluding lecture content. --><span class="content">To be announced</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Concluding lecture</span>
+                  <div class="session-description"><!-- EDIT: Day 3, Concluding lecture content. --><span class="content">To be announced</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Concluding lecture</span>
+                  <div class="session-description"><!-- EDIT: Day 4, Concluding lecture content. --><span class="content">To be announced</span></div>
+                </td>
+                <td class="session-cell">
+                  <span class="session-title">Concluding lecture</span>
+                  <div class="session-description"><!-- EDIT: Day 5, Concluding lecture content. --><span class="content">To be announced</span></div>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="participant-details">
-          <p><strong>Hands-on sessions:</strong> We will use interactive Jupyter notebooks, realistic simulation environments, and real robots. No installation is required.</p>
+          <h3 id="participant-location">Location</h3>
+          <p><strong>Lectures:</strong> Classroom 7, first floor, Taub Faculty of Computer Science.</p>
+          <p><strong>Labs:</strong> CLAIR Lab, Taub 108.</p>
+
+          <h3 id="participant-materials">Link to all materials</h3>
+          <p>All workshop materials are available in the <a href="https://github.com/CLAIR-LAB-TECHNION/physical-ai-workshop" target="_blank" rel="noopener noreferrer">workshop GitHub repository</a>.</p>
+
+          <h3 id="participant-setup">Technical setup</h3>
+          <p>We will support running the tutorial code via <strong>Google Colab</strong>. All code, including environment setup, will be provided in Jupyter notebooks, so the only requirement is a <strong>valid Google account</strong>.</p>
+          <p>The notebooks can also be run locally, but we will not provide technical support for local installations.</p>
           <p><strong>Questions:</strong> Contact Sarah Keren at <a href="mailto:sarahk@technion.ac.il">sarahk@technion.ac.il</a>.</p>
         </div>
       </div>
