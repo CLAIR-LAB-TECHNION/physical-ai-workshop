@@ -6,6 +6,25 @@
   <meta name="description" content="An interactive Physical AI workshop by CLAIR Lab and the Taub Faculty of Computer Science at the Technion.">
   <title>Reason. Plan. Act. | Physical AI Workshop</title>
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    #participants { scroll-margin-top: 100px; }
+    #participants .schedule-image-wrap { margin: 24px 0 40px; }
+    .participant-schedule { width: 100%; border-collapse: collapse; background: #fff; text-align: left; }
+    .participant-schedule caption { text-align: left; padding: 0 0 16px; color: var(--muted); }
+    .participant-schedule th, .participant-schedule td { padding: 14px 18px; border: 1px solid var(--line); vertical-align: top; }
+    .participant-schedule thead th { background: var(--navy); color: #fff; }
+    .participant-schedule .day-label { width: 21%; background: var(--soft); color: var(--navy); }
+    .participant-schedule .slot-time { white-space: nowrap; }
+    .participant-schedule .slot-content { min-width: 220px; }
+    .participant-schedule .day-start > * { border-top: 3px solid var(--green-dark); }
+    .participant-schedule .pending-content { color: var(--muted); }
+    .participant-details { margin-top: 32px; }
+    @media (max-width: 820px) {
+      #participants { scroll-margin-top: 84px; }
+      .participant-schedule th, .participant-schedule td { padding: 12px; }
+    }
+  </style>
 </head>
 <body>
   <nav class="site-nav" aria-label="Primary navigation">
@@ -14,7 +33,6 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#objectives">Objectives</a>
-        <a href="#program">Program</a>
         <a href="#organizers">Organizers</a>
         <a href="#contact">Contact</a>
         <a class="nav-cta" href="#participants">Information for Participants</a>
@@ -29,7 +47,7 @@
         <div class="hero-copy">
     <img
   class="ai-days-logo"
-  src="images/AIDaysTechnion.png"
+  src="assets/AIDaysTechnion.png"
   alt="Technion AI Days">
           <h1>Reason. Plan. Act.</h1>
           <p class="hero-kicker">An Interactive Workshop on Physical AI</p>
@@ -102,11 +120,11 @@
         </div>
         <div class="image-row">
           <figure class="image-card sim-card">
-            <img src="images/mojuco.png" alt="Robot manipulation task in the MuJoCo simulator">
+            <img src="assets/mojuco.png" alt="Robot manipulation task in the MuJoCo simulator">
             <figcaption>Realistic simulation with MuJoCo</figcaption>
           </figure>
           <figure class="image-card lab-card">
-            <img src="images/clair-lab-robots.jpg" alt="Robotic arms at the CLAIR Lab">
+            <img src="assets/clair-lab-robots.jpg" alt="Robotic arms at the CLAIR Lab">
             <figcaption>Physical robots at CLAIR Lab</figcaption>
           </figure>
         </div>
@@ -135,35 +153,200 @@
       </div>
     </section>
 
-  <section id="program" class="alt">
-  <div class="container">
-    <div class="section-heading">
-      <p class="eyebrow">Full program</p>
-      <h2>Tentative Workshop Schedule</h2>
-
-      <p class="lead">
-        A five-part progression from Physical AI foundations to
-        integrated experiments on robotic platforms. Exact dates and
-        session times will be announced.
-      </p>
-    </div>
-
-    <figure class="schedule-image-wrap">
-      <a href="assets/tentative-workshop-schedule.png"
-         target="_blank"
-         rel="noopener noreferrer">
-        <img
-          class="schedule-image"
-          src="assets/tentative-workshop-schedule-w-practical.png"
-          alt="Tentative five-day Physical AI workshop schedule">
-      </a>
-
-      <figcaption>
-        Click the schedule to view it at full size.
-      </figcaption>
-    </figure>
-  </div>
-</section>
+    <section id="participants" class="alt" aria-labelledby="participants-heading">
+      <div class="container">
+        <div class="section-heading section-heading-wide">
+          <p class="eyebrow">Get ready for the workshop</p>
+          <h2 id="participants-heading">Information for Participants</h2>
+        </div>
+        <h3>Schedule overview</h3>
+        <figure class="schedule-image-wrap">
+          <a href="assets/workshop-schedule-w-practical.png" target="_blank" rel="noopener noreferrer">
+            <img class="schedule-image" src="assets/workshop-schedule-w-practical.png" alt="Overview of the five-day Physical AI workshop schedule" loading="lazy">
+          </a>
+          <figcaption>Click the schedule to view it at full size.</figcaption>
+        </figure>
+        <h3 id="detailed-schedule-heading">Detailed schedule</h3>
+        <div class="schedule-wrap" role="region" aria-labelledby="detailed-schedule-heading" tabindex="0">
+          <!-- EDIT: Replace each 'To be announced' below with the content for that day and slot. -->
+          <table class="participant-schedule">
+            <caption>18–22 October 2026 · All times are local to the Technion (Israel). Session content will be announced.</caption>
+            <thead>
+              <tr><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Session</th><th scope="col">Content</th></tr>
+            </thead>
+            <tbody>
+              <tr class="day-start">
+                <th class="day-label" scope="rowgroup" rowspan="6">Day 1<br>Sunday<br>18 October 2026</th>
+                <td class="slot-time">09:00–10:30</td>
+                <th scope="row">Morning lecture</th>
+                <td class="slot-content"><!-- EDIT: Day 1, Morning lecture content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">10:30–11:00</td>
+                <th scope="row">Break</th>
+                <td class="slot-content"><!-- EDIT: Day 1, Break content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">11:00–12:00</td>
+                <th scope="row">Lab 1</th>
+                <td class="slot-content"><!-- EDIT: Day 1, Lab 1 content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">12:00–13:30</td>
+                <th scope="row">Lunch</th>
+                <td class="slot-content"><!-- EDIT: Day 1, Lunch content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">13:30–14:30</td>
+                <th scope="row">Lab 2</th>
+                <td class="slot-content"><!-- EDIT: Day 1, Lab 2 content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">14:30–15:00</td>
+                <th scope="row">Concluding lecture</th>
+                <td class="slot-content"><!-- EDIT: Day 1, Concluding lecture content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr class="day-start">
+                <th class="day-label" scope="rowgroup" rowspan="6">Day 2<br>Monday<br>19 October 2026</th>
+                <td class="slot-time">09:00–10:30</td>
+                <th scope="row">Morning lecture</th>
+                <td class="slot-content"><!-- EDIT: Day 2, Morning lecture content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">10:30–11:00</td>
+                <th scope="row">Break</th>
+                <td class="slot-content"><!-- EDIT: Day 2, Break content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">11:00–12:00</td>
+                <th scope="row">Lab 1</th>
+                <td class="slot-content"><!-- EDIT: Day 2, Lab 1 content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">12:00–13:30</td>
+                <th scope="row">Lunch</th>
+                <td class="slot-content"><!-- EDIT: Day 2, Lunch content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">13:30–14:30</td>
+                <th scope="row">Lab 2</th>
+                <td class="slot-content"><!-- EDIT: Day 2, Lab 2 content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">14:30–15:00</td>
+                <th scope="row">Concluding lecture</th>
+                <td class="slot-content"><!-- EDIT: Day 2, Concluding lecture content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr class="day-start">
+                <th class="day-label" scope="rowgroup" rowspan="6">Day 3<br>Tuesday<br>20 October 2026</th>
+                <td class="slot-time">09:00–10:30</td>
+                <th scope="row">Morning lecture</th>
+                <td class="slot-content"><!-- EDIT: Day 3, Morning lecture content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">10:30–11:00</td>
+                <th scope="row">Break</th>
+                <td class="slot-content"><!-- EDIT: Day 3, Break content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">11:00–12:00</td>
+                <th scope="row">Lab 1</th>
+                <td class="slot-content"><!-- EDIT: Day 3, Lab 1 content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">12:00–13:30</td>
+                <th scope="row">Lunch</th>
+                <td class="slot-content"><!-- EDIT: Day 3, Lunch content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">13:30–14:30</td>
+                <th scope="row">Lab 2</th>
+                <td class="slot-content"><!-- EDIT: Day 3, Lab 2 content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">14:30–15:00</td>
+                <th scope="row">Concluding lecture</th>
+                <td class="slot-content"><!-- EDIT: Day 3, Concluding lecture content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr class="day-start">
+                <th class="day-label" scope="rowgroup" rowspan="6">Day 4<br>Wednesday<br>21 October 2026</th>
+                <td class="slot-time">09:00–10:30</td>
+                <th scope="row">Morning lecture</th>
+                <td class="slot-content"><!-- EDIT: Day 4, Morning lecture content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">10:30–11:00</td>
+                <th scope="row">Break</th>
+                <td class="slot-content"><!-- EDIT: Day 4, Break content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">11:00–12:00</td>
+                <th scope="row">Lab 1</th>
+                <td class="slot-content"><!-- EDIT: Day 4, Lab 1 content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">12:00–13:30</td>
+                <th scope="row">Lunch</th>
+                <td class="slot-content"><!-- EDIT: Day 4, Lunch content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">13:30–14:30</td>
+                <th scope="row">Lab 2</th>
+                <td class="slot-content"><!-- EDIT: Day 4, Lab 2 content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">14:30–15:00</td>
+                <th scope="row">Concluding lecture</th>
+                <td class="slot-content"><!-- EDIT: Day 4, Concluding lecture content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr class="day-start">
+                <th class="day-label" scope="rowgroup" rowspan="6">Day 5<br>Thursday<br>22 October 2026</th>
+                <td class="slot-time">09:00–10:30</td>
+                <th scope="row">Morning lecture</th>
+                <td class="slot-content"><!-- EDIT: Day 5, Morning lecture content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">10:30–11:00</td>
+                <th scope="row">Break</th>
+                <td class="slot-content"><!-- EDIT: Day 5, Break content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">11:00–12:00</td>
+                <th scope="row">Lab 1</th>
+                <td class="slot-content"><!-- EDIT: Day 5, Lab 1 content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">12:00–13:30</td>
+                <th scope="row">Lunch</th>
+                <td class="slot-content"><!-- EDIT: Day 5, Lunch content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">13:30–14:30</td>
+                <th scope="row">Lab 2</th>
+                <td class="slot-content"><!-- EDIT: Day 5, Lab 2 content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+              <tr>
+                <td class="slot-time">14:30–15:00</td>
+                <th scope="row">Concluding lecture</th>
+                <td class="slot-content"><!-- EDIT: Day 5, Concluding lecture content. --><span class="pending-content">To be announced</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="participant-details">
+          <p><strong>Hands-on sessions:</strong> We will use interactive Jupyter notebooks, realistic simulation environments, and real robots. No installation is required.</p>
+          <p><strong>Questions:</strong> Contact Sarah Keren at <a href="mailto:sarahk@technion.ac.il">sarahk@technion.ac.il</a>.</p>
+        </div>
+      </div>
+    </section>
 
     <section id="organizers">
       <div class="container">
@@ -174,22 +357,22 @@
         </div>
         <div class="organizer-grid">
           <article class="organizer-card">
-            <img src="images/sarah-keren.jpg" alt="Portrait of Dr. Sarah Keren">
+            <img src="assets/sarah-keren.jpg" alt="Portrait of Dr. Sarah Keren">
             <h3>Dr. Sarah Keren</h3>
             <p>Workshop Lead · Head of CLAIR Lab</p>
           </article>
           <article class="organizer-card">
-            <img src="images/david.png" alt="Portrait of Dr. David Dovrat">
+            <img src="assets/david.png" alt="Portrait of Dr. David Dovrat">
             <h3>Dr. David Dovrat</h3>
             <p>Organizer · CLAIR Lab</p>
           </article>
           <article class="organizer-card">
-            <img src="images/guy.png" alt="Portrait of Guy Azran">
+            <img src="assets/guy.png" alt="Portrait of Guy Azran">
             <h3>Guy Azran</h3>
             <p>Organizer · CLAIR Lab</p>
           </article>
           <article class="organizer-card">
-            <img src="images/almog.jpeg" alt="Portrait of Almog Anschel">
+            <img src="assets/almog.jpeg" alt="Portrait of Almog Anschel">
             <h3>Almog Anschel</h3>
             <p>Organizer · CLAIR Lab</p>
           </article>
@@ -218,17 +401,7 @@
       </div>
     </section>
 
-    <section id="participants" class="registration" aria-labelledby="participants-heading">
-      <div class="container registration-inner">
-        <p class="eyebrow eyebrow-light">Get ready for the workshop</p>
-        <h2 id="participants-heading">Information for Participants</h2>
-        <p><strong>Dates:</strong> 18–22 October 2026.</p>
-        <p><strong>Hands-on sessions:</strong> We will use interactive Jupyter notebooks, realistic simulation environments, and real robots. No installation is required.</p>
-        <p><strong>Program:</strong> See the tentative workshop schedule for an overview of the sessions.</p>
-        <p><strong>Questions:</strong> Contact Sarah Keren at <a href="mailto:sarahk@technion.ac.il" style="color: inherit; text-decoration: underline;">sarahk@technion.ac.il</a>.</p>
-        <a class="status" href="#program">View the workshop schedule</a>
-      </div>
-    </section>
+
   </main>
 
   <footer>
@@ -239,3 +412,4 @@
   </footer>
 </body>
 </html>
+
