@@ -1,10 +1,10 @@
 ![Reason. Plan. Act. — Physical AI Workshop](assets/workshop-banner.png)
 
 ### 18-22/10 - 09:00-15:00 
-### Technion - Computer Science 
+### Technion - Taub Faculty of Computer Science - Room 7
 ### Contact: Dr. Sarah Keren sarahk@technion.ac.il
 
-![Reason. Plan. Act. — Physical AI Workshop](images/AIDaysTechnion.png)
+![Reason. Plan. Act. — Physical AI Workshop](assets/AIDaysTechnion.png)
 
 Physical AI seeks to bring artificial intelligence into the physical world by enabling intelligent systems to perceive, reason, and act in dynamic and uncertain environments. Unlike traditional AI, which primarily operates in digital domains, Physical AI must bridge high-level reasoning with the constraints imposed by geometry, dynamics, uncertainty, sensing, and real-time interaction.
 
