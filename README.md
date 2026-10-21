@@ -20,3 +20,5 @@ The workshop website is available at:
 
 👉 https://clair-lab-technion.github.io/physical-ai-workshop
 
+## 🌐 Sign up for robot day here
+https://docs.google.com/forms/d/e/1FAIpQLSd3YHnCqC4jXhznogIXrfWM8Q9KTOZF9h396qg3Nu_35Mg_sw/viewform
